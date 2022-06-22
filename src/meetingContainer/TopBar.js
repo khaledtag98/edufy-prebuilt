@@ -461,12 +461,12 @@ const ScreenShareBTN = ({ onClick, isMobile, isTab }) => {
         RDDIsMobile || RDDIsTablet
           ? true
           : whiteboardStarted
-          ? true
-          : presenterId
-          ? localScreenShareOn
-            ? false
-            : true
-          : false
+            ? true
+            : presenterId
+              ? localScreenShareOn
+                ? false
+                : true
+              : false
       }
     />
   ) : (
@@ -488,12 +488,12 @@ const ScreenShareBTN = ({ onClick, isMobile, isTab }) => {
         RDDIsMobile || RDDIsTablet
           ? true
           : whiteboardStarted
-          ? true
-          : presenterId
-          ? localScreenShareOn
-            ? false
-            : true
-          : false
+            ? true
+            : presenterId
+              ? localScreenShareOn
+                ? false
+                : true
+              : false
       }
     />
   );
@@ -831,8 +831,8 @@ const EndCallBTN = () => {
           !participantCanLeave
             ? "End Call"
             : participantCanEndMeeting
-            ? "Open popup"
-            : "Leave Call"
+              ? "Open popup"
+              : "Leave Call"
         }
         bgColor={theme.palette.error.main}
         Icon={EndCall}
@@ -840,8 +840,8 @@ const EndCallBTN = () => {
           !participantCanLeave
             ? setIsEndMeeting(true)
             : participantCanEndMeeting
-            ? handleClick(e)
-            : leave();
+              ? handleClick(e)
+              : leave();
         }}
       />
       {participantCanEndMeeting && (

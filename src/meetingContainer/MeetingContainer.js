@@ -230,8 +230,8 @@ const MeetingContainer = () => {
       const outputs = liveStreamConfigRef?.current?.length
         ? liveStreamConfigRef.current
         : liveStreamOutputs?.length
-        ? liveStreamOutputs
-        : null;
+          ? liveStreamOutputs
+          : null;
 
       const type = typeRef.current;
       const priority = priorityRef.current;
@@ -343,10 +343,9 @@ const MeetingContainer = () => {
 
         if (notificationAlertsEnabled) {
           enqueueSnackbar(
-            `${
-              isLocal
-                ? "You end the call"
-                : " This meeting has been ended by host"
+            `${isLocal
+              ? "You end the call"
+              : " This meeting has been ended by host"
             }`
           );
         }
@@ -409,8 +408,7 @@ const MeetingContainer = () => {
 
       if (notificationAlertsEnabled) {
         enqueueSnackbar(
-          `${
-            isLocal ? "You" : nameTructed(mPresenter.displayName, 15)
+          `${isLocal ? "You" : nameTructed(mPresenter.displayName, 15)
           } started presenting`
         );
       }
@@ -441,7 +439,7 @@ const MeetingContainer = () => {
     }
   };
 
-  const _handleOnEntryRequested = () => {};
+  const _handleOnEntryRequested = () => { };
 
   const _handleOnEntryResponded = (participantId, decision) => {
     if (mMeetingRef.current?.localParticipant?.id === participantId) {
@@ -502,8 +500,8 @@ const MeetingContainer = () => {
       message: debug
         ? message
         : isJoiningError
-        ? "Unable to join meeting!"
-        : message,
+          ? "Unable to join meeting!"
+          : message,
     });
   };
 
@@ -542,7 +540,7 @@ const MeetingContainer = () => {
           document.documentElement.msRequestFullscreen();
         }
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   useEffect(() => {
@@ -603,8 +601,8 @@ const MeetingContainer = () => {
                 }}
               >
                 {mMeeting?.pinnedParticipants.size > 0 &&
-                (meetingLayout === meetingLayouts.SPOTLIGHT ||
-                  meetingLayout === meetingLayouts.SIDEBAR) ? (
+                  (meetingLayout === meetingLayouts.SPOTLIGHT ||
+                    meetingLayout === meetingLayouts.SIDEBAR) ? (
                   <PinnedLayoutViewContainer
                     {...{
                       height: containerHeight - topBarHeight,
@@ -613,8 +611,8 @@ const MeetingContainer = () => {
                         (isTab || isMobile
                           ? 0
                           : typeof sideBarMode === "string"
-                          ? sideBarContainerWidth
-                          : 0),
+                            ? sideBarContainerWidth
+                            : 0),
                       whiteboardToolbarWidth,
                       whiteboardSpacing,
                     }}
@@ -628,8 +626,8 @@ const MeetingContainer = () => {
                         (isTab || isMobile
                           ? 0
                           : typeof sideBarMode === "string"
-                          ? sideBarContainerWidth
-                          : 0),
+                            ? sideBarContainerWidth
+                            : 0),
                       whiteboardToolbarWidth,
                       whiteboardSpacing,
                     }}

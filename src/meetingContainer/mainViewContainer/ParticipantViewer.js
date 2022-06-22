@@ -21,6 +21,7 @@ import circleRipple from "../../animations/circleRipple.json";
 import { Pin } from "../../icons";
 import useIsLGDesktop from "../../utils/useIsLGDesktop";
 import ReactPlayer from "react-player";
+import periodicStreamRecorder from "../../helpers/periodicStreamRecorder";
 
 export const CornerDisplayName = ({
   isPresenting,
@@ -230,6 +231,22 @@ const ParticipantViewer = ({ participantId, quality, useVisibilitySensor }) => {
   const participantAccentColor = useMemo(() => getRandomColor("light"), []);
 
   const theme = useTheme();
+  // const RECORD_INTERVAL = 2000;
+
+  useEffect(() => {
+    if (!webcamOn) {
+      return;
+    }
+    // const interval = setInterval(() => {
+    //   if (webcamOn) {
+    //   }
+    // }, RECORD_INTERVAL);
+    periodicStreamRecorder();
+
+    // return () => clearInterval(interval);
+  }, [webcamOn])
+
+
 
   useEffect(() => {
     if (!quality || isRecorder) return;
