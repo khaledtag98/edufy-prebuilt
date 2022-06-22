@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import { useMeetingAppContext } from "../MeetingAppContextDef";
 import useResponsiveSize from "../utils/useResponsiveSize";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 
 const OutlineIconTextButton = ({
   onClick,
@@ -64,17 +64,16 @@ const OutlineIconTextButton = ({
           backgroundColor: bgColor
             ? bgColor
             : isFocused
-            ? focusBGColor || "#fff"
-            : theme.palette.background.default,
-          border: `${2}px solid ${
-            mouseOver || mouseDown
+              ? focusBGColor || "#fff"
+              : theme.palette.background.default,
+          border: `${2}px solid ${mouseOver || mouseDown
               ? "transparent"
               : bgColor
-              ? bgColor
-              : focusBGColor
-              ? focusBGColor
-              : "#ffffff33"
-          }`,
+                ? bgColor
+                : focusBGColor
+                  ? focusBGColor
+                  : "#ffffff33"
+            }`,
           transition: `all ${200 * (animationsEnabled ? 1 : 0.5)}ms`,
           transitionTimingFunction: "linear",
           cursor: "pointer",

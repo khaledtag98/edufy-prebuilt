@@ -134,8 +134,8 @@ export default function JoinMeeting({
     participantCanToggleSelfWebcam === "true"
       ? "video"
       : participantCanToggleSelfMic === "true"
-      ? "audio"
-      : null
+        ? "audio"
+        : null
   );
 
   const [dlgMuted, setDlgMuted] = useState(false);
@@ -532,7 +532,7 @@ export default function JoinMeeting({
                             }}
                           >
                             {participantCanToggleSelfWebcam === "false" &&
-                            !webcamOn ? (
+                              !webcamOn ? (
                               <Typography variant={isXLOnly ? "h4" : "h6"}>
                                 You are not allowed to turn on your camera
                               </Typography>
@@ -543,7 +543,7 @@ export default function JoinMeeting({
                             ) : null}
                           </Box>
                           {participantCanToggleSelfWebcam === "true" ||
-                          participantCanToggleSelfMic === "true" ? (
+                            participantCanToggleSelfMic === "true" ? (
                             <Box
                               style={{
                                 position: "absolute",
@@ -616,7 +616,7 @@ export default function JoinMeeting({
                         <Grid
                           container
                           alignItems="center"
-                          justify="center"
+                          justifyContent="center"
                           spacing={2}
                         >
                           {participantCanToggleSelfMic === "true" ? (
@@ -633,9 +633,9 @@ export default function JoinMeeting({
                                     micOn
                                       ? {}
                                       : {
-                                          backgroundColor: red[500],
-                                          color: "white",
-                                        }
+                                        backgroundColor: red[500],
+                                        color: "white",
+                                      }
                                   }
                                   className={classes.toggleButton}
                                 >
@@ -663,9 +663,9 @@ export default function JoinMeeting({
                                     webcamOn
                                       ? {}
                                       : {
-                                          backgroundColor: red[500],
-                                          color: "white",
-                                        }
+                                        backgroundColor: red[500],
+                                        color: "white",
+                                      }
                                   }
                                   className={classes.toggleButton}
                                 >

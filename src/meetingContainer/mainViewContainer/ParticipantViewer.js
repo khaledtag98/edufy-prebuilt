@@ -15,7 +15,7 @@ import useIsMobile from "../../utils/useIsMobile";
 import useIsTab from "../../utils/useIsTab";
 import VisibilitySensor from "react-visibility-sensor";
 import useResponsiveSize from "../../utils/useResponsiveSize";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import animationData from "../../animations/equaliser.json";
 import circleRipple from "../../animations/circleRipple.json";
 import { Pin } from "../../icons";
@@ -104,8 +104,8 @@ export const CornerDisplayName = ({
               ? `You are presenting`
               : `${nameTructed(displayName, 15)} is presenting`
             : isLocal
-            ? "You"
-            : nameTructed(displayName, 26)}
+              ? "You"
+              : nameTructed(displayName, 26)}
         </Typography>
       </div>
       {canPin && (
@@ -158,8 +158,8 @@ export const CornerDisplayName = ({
             backgroundColor: isActiveSpeaker
               ? "#00000066"
               : micOn
-              ? undefined
-              : "#D32F2Fcc",
+                ? undefined
+                : "#D32F2Fcc",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

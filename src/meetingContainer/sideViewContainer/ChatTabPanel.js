@@ -208,7 +208,7 @@ const ChatMessageInput = ({ inputHeight }) => {
       <Input
         style={{ paddingRight: 0 }}
         rows={1}
-        rowsMax={2}
+        maxRows={2}
         multiline
         ref={input}
         placeholder="Write your message"

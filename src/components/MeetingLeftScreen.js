@@ -1,6 +1,6 @@
 import { Box, Button, Link, Typography } from "@material-ui/core";
 import React from "react";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import animationData from "../animations/meeting-left.json";
 import useIsLGDesktop from "../utils/useIsLGDesktop";
 import useIsSMDesktop from "../utils/useIsSMDesktop";
@@ -118,9 +118,9 @@ const MeetingLeftScreen = ({
             </Button>
           )}
           {leftScreenActionButtonLabel &&
-          leftScreenActionButtonLabel !== "undefined" &&
-          leftScreenActionButtonHref &&
-          leftScreenActionButtonHref !== "undefined" ? (
+            leftScreenActionButtonLabel !== "undefined" &&
+            leftScreenActionButtonHref &&
+            leftScreenActionButtonHref !== "undefined" ? (
             <Box
               mt={
                 leftScreenRejoinButtonEnabled

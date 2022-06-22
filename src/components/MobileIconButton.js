@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { useMeetingAppContext } from "../MeetingAppContextDef";
 import useResponsiveSize from "../utils/useResponsiveSize";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 
 const MobileIconButton = ({
   badge,

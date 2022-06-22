@@ -40,21 +40,13 @@ const App = () => {
 
   const [meetingLeft, setMeetingLeft] = useState(false);
 
-  const playNotificationErr = async () => {
-    const errAudio = new Audio(
-      `https://static.videosdk.live/prebuilt/notification_err.mp3`
-    );
-
-    await errAudio.play();
-  };
-
   const getParams = ({ maxGridSize }) => {
     const location = window.location;
 
     const urlParams = new URLSearchParams(location.search);
 
     const paramKeys = {
-      token: "token",
+      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiJkNTY2MDk0NS03ZWZlLTRhZmItODBjMi1iMWM2MjJmMWExZWMiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTY1NTg1MTk4MiwiZXhwIjoxNjU2NDU2NzgyfQ.cFpDXGdrK408U7lpNtoEeZ_oD-H9fq_gb3SrMB3iNDY",
       micEnabled: "micEnabled",
       webcamEnabled: "webcamEnabled",
       name: "name",
@@ -146,14 +138,14 @@ const App = () => {
 
     if (typeof paramKeys.token !== "string") {
       configErr = `"token" not provided`;
-      playNotificationErr();
+
       setMeetingError({ message: configErr, code: 4001, isVisible: true });
       //
       // throw new Error(configErr);
     }
     if (typeof paramKeys.meetingId !== "string") {
       configErr = `"meetingId" not provided`;
-      playNotificationErr();
+
       setMeetingError({ message: configErr, code: 4001, isVisible: true });
       //
       // throw new Error(configErr);
@@ -161,7 +153,7 @@ const App = () => {
     if (typeof paramKeys.name !== "string") {
       if (paramKeys.joinScreenEnabled !== "true") {
         configErr = `"name" not provided when joinScreen is disabled`;
-        playNotificationErr();
+
         setMeetingError({ message: configErr, code: 4001, isVisible: true });
         //
         // throw new Error(configErr);
@@ -301,7 +293,7 @@ const App = () => {
       paramKeys.sideStackSize <= 0
     ) {
       configErr = `"sideStackSize" is not a valid number`;
-      playNotificationErr();
+
       setMeetingError({ message: configErr, code: 4001, isVisible: true });
     }
 
@@ -348,10 +340,10 @@ const App = () => {
     return isLGDesktop
       ? maxParticipantGridCount_large_desktop
       : isSMDesktop
-      ? maxParticipantGridCount_desktop
-      : isTab
-      ? maxParticipantGridCount_tab
-      : maxParticipantGridCount_mobile;
+        ? maxParticipantGridCount_desktop
+        : isTab
+          ? maxParticipantGridCount_tab
+          : maxParticipantGridCount_mobile;
   }, [isLGDesktop, isSMDesktop, isTab]);
 
   const paramKeys = useMemo(() => getParams({ maxGridSize }), [maxGridSize]);
@@ -364,14 +356,14 @@ const App = () => {
   const [joinScreenWebCam, setJoinScreenWebCam] = useState(
     paramKeys.joinScreenEnabled === "true"
       ? paramKeys.participantCanToggleSelfWebcam === "true" &&
-          paramKeys.webcamEnabled === "true"
+      paramKeys.webcamEnabled === "true"
       : paramKeys.webcamEnabled === "true"
   );
 
   const [joinScreenMic, setJoinScreenMic] = useState(
     paramKeys.joinScreenEnabled === "true"
       ? paramKeys.participantCanToggleSelfMic === "true" &&
-          paramKeys.micEnabled === "true"
+      paramKeys.micEnabled === "true"
       : paramKeys.micEnabled === "true"
   );
   const [selectedMic, setSelectedMic] = useState({ id: null });
@@ -407,7 +399,7 @@ const App = () => {
         reqStatusCode: meetingIdJson.statusCode,
       });
 
-      playNotificationErr();
+
 
       setMeetingError({
         message: debug ? meetingIdJson.error : "Unable to join meeting!",
@@ -552,8 +544,8 @@ const App = () => {
                   ? "hd"
                   : paramKeys.maxResolution === "sd" ||
                     paramKeys.maxResolution === "hd"
-                  ? paramKeys.maxResolution
-                  : "sd",
+                    ? paramKeys.maxResolution
+                    : "sd",
               participantId: paramKeys.participantId,
               preferredProtocol: paramKeys.preferredProtocol,
             }}
